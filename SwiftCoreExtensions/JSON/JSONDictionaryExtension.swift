@@ -3,7 +3,7 @@ import Foundation
 extension NSDictionary {
     public func without(jsonPath: String) -> NSDictionary {
         let copy = self.mutableCopy() as! NSMutableDictionary
-        
+
         let pathComponents = jsonPath.split(":", times: 1)
         if pathComponents.count == 1 {
             copy.removeObjectForKey(pathComponents[0])
@@ -17,18 +17,34 @@ extension NSDictionary {
             }
             if let array = self[key] as? [NSDictionary] {
                 var modifiedArray = [NSDictionary]()
-                
-                for dictionary in array {
-                    copy.removeObjectForKey(key)
-                    let modifiedSubdictionary = dictionary.without(pathComponents[1])
-                    modifiedArray.append(modifiedSubdictionary)
+                let subcomponents = pathComponents[1].split(":", times: 1)
+                let nextToken = subcomponents[0]
+                if let nextTokenInt = Int(nextToken) {
+                    for (i, dictionary) in array.enumerate() {
+                        if nextTokenInt == i {
+                            copy.removeObjectForKey(key)
+                            let modifiedSubdictionary = dictionary.without(subcomponents[1])
+                            modifiedArray.append(modifiedSubdictionary)
+                        } else {
+                            modifiedArray.append(dictionary)
+                        }
+                    }
+
+                    copy.setValue(modifiedArray, forKey: key)
+                    return copy
+                } else {
+                    for dictionary in array {
+                        copy.removeObjectForKey(key)
+                        let modifiedSubdictionary = dictionary.without(pathComponents[1])
+                        modifiedArray.append(modifiedSubdictionary)
+                    }
+
+                    copy.setValue(modifiedArray, forKey: key)
+                    return copy
                 }
-                
-                copy.setValue(modifiedArray, forKey: key)
-                return copy
             }
         }
-        
+
         return copy
     }
 }
