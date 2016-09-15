@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		7BEDE2191D8ADE350054D13B /* JSONDictionaryExtension+Without.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDE2181D8ADE350054D13B /* JSONDictionaryExtension+Without.swift */; };
 		7BEDE21B1D8ADE3B0054D13B /* JSONDictionaryExtension+WithoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDE21A1D8ADE3B0054D13B /* JSONDictionaryExtension+WithoutSpec.swift */; };
+		7BEDE21D1D8ADEB90054D13B /* JSONDictionaryExtension+MergeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDE21C1D8ADEB90054D13B /* JSONDictionaryExtension+MergeSpec.swift */; };
+		7BEDE21F1D8AE23E0054D13B /* JSONDictionaryExtension+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDE21E1D8AE23E0054D13B /* JSONDictionaryExtension+Merge.swift */; };
+		7BEDE2211D8AE39B0054D13B /* KeyIsNotAStringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDE2201D8AE39B0054D13B /* KeyIsNotAStringError.swift */; };
+		7BEDE2231D8AE64A0054D13B /* KeyIsNotAStringErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDE2221D8AE64A0054D13B /* KeyIsNotAStringErrorSpec.swift */; };
 		AE9653481D806BA800EDF682 /* SwiftCoreExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = AE9653471D806BA800EDF682 /* SwiftCoreExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE96534F1D806BA800EDF682 /* SwiftCoreExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9653441D806BA800EDF682 /* SwiftCoreExtensions.framework */; };
 		AE9653631D806C5300EDF682 /* String+ExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9653621D806C5300EDF682 /* String+ExtensionSpec.swift */; };
@@ -29,6 +33,10 @@
 /* Begin PBXFileReference section */
 		7BEDE2181D8ADE350054D13B /* JSONDictionaryExtension+Without.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDictionaryExtension+Without.swift"; sourceTree = "<group>"; };
 		7BEDE21A1D8ADE3B0054D13B /* JSONDictionaryExtension+WithoutSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDictionaryExtension+WithoutSpec.swift"; sourceTree = "<group>"; };
+		7BEDE21C1D8ADEB90054D13B /* JSONDictionaryExtension+MergeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDictionaryExtension+MergeSpec.swift"; sourceTree = "<group>"; };
+		7BEDE21E1D8AE23E0054D13B /* JSONDictionaryExtension+Merge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDictionaryExtension+Merge.swift"; sourceTree = "<group>"; };
+		7BEDE2201D8AE39B0054D13B /* KeyIsNotAStringError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyIsNotAStringError.swift; sourceTree = "<group>"; };
+		7BEDE2221D8AE64A0054D13B /* KeyIsNotAStringErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyIsNotAStringErrorSpec.swift; sourceTree = "<group>"; };
 		AE9653441D806BA800EDF682 /* SwiftCoreExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCoreExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9653471D806BA800EDF682 /* SwiftCoreExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCoreExtensions.h; sourceTree = "<group>"; };
 		AE9653491D806BA800EDF682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				7BEDE21A1D8ADE3B0054D13B /* JSONDictionaryExtension+WithoutSpec.swift */,
+				7BEDE21C1D8ADEB90054D13B /* JSONDictionaryExtension+MergeSpec.swift */,
+				7BEDE2221D8AE64A0054D13B /* KeyIsNotAStringErrorSpec.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -127,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				7BEDE2181D8ADE350054D13B /* JSONDictionaryExtension+Without.swift */,
+				7BEDE21E1D8AE23E0054D13B /* JSONDictionaryExtension+Merge.swift */,
+				7BEDE2201D8AE39B0054D13B /* KeyIsNotAStringError.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -247,7 +259,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BEDE21F1D8AE23E0054D13B /* JSONDictionaryExtension+Merge.swift in Sources */,
 				7BEDE2191D8ADE350054D13B /* JSONDictionaryExtension+Without.swift in Sources */,
+				7BEDE2211D8AE39B0054D13B /* KeyIsNotAStringError.swift in Sources */,
 				AE9653671D806C6000EDF682 /* String+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,8 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BEDE21D1D8ADEB90054D13B /* JSONDictionaryExtension+MergeSpec.swift in Sources */,
 				AE9653631D806C5300EDF682 /* String+ExtensionSpec.swift in Sources */,
 				7BEDE21B1D8ADE3B0054D13B /* JSONDictionaryExtension+WithoutSpec.swift in Sources */,
+				7BEDE2231D8AE64A0054D13B /* KeyIsNotAStringErrorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
