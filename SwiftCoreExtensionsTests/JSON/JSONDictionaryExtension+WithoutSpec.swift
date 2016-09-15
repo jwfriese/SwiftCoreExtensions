@@ -1,7 +1,7 @@
 import XCTest
 import Nimble
 
-class JSONDictionaryExtensionsSpec: XCTestCase {
+class JSONDictionaryExtension_WithoutSpec: XCTestCase {
     func test_without_whenDictionaryHasKey_returnsADictionaryWithTheGivenKeyEntryRemoved() {
         let originalJSON: Dictionary<String, AnyObject> = ["key" : "value"]
         let originalJSONDictionary: NSDictionary = originalJSON

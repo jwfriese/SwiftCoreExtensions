@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BEDE2191D8ADE350054D13B /* JSONDictionaryExtension+Without.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDE2181D8ADE350054D13B /* JSONDictionaryExtension+Without.swift */; };
+		7BEDE21B1D8ADE3B0054D13B /* JSONDictionaryExtension+WithoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEDE21A1D8ADE3B0054D13B /* JSONDictionaryExtension+WithoutSpec.swift */; };
 		AE9653481D806BA800EDF682 /* SwiftCoreExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = AE9653471D806BA800EDF682 /* SwiftCoreExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE96534F1D806BA800EDF682 /* SwiftCoreExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9653441D806BA800EDF682 /* SwiftCoreExtensions.framework */; };
 		AE9653631D806C5300EDF682 /* String+ExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9653621D806C5300EDF682 /* String+ExtensionSpec.swift */; };
-		AE9653651D806C5A00EDF682 /* JSONDictionaryExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9653641D806C5A00EDF682 /* JSONDictionaryExtensionSpec.swift */; };
 		AE9653671D806C6000EDF682 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9653661D806C6000EDF682 /* String+Extension.swift */; };
-		AE9653691D806C6400EDF682 /* JSONDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9653681D806C6400EDF682 /* JSONDictionaryExtension.swift */; };
 		AE96536B1D806DCD00EDF682 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE96536A1D806DCD00EDF682 /* Nimble.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,15 +27,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7BEDE2181D8ADE350054D13B /* JSONDictionaryExtension+Without.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDictionaryExtension+Without.swift"; sourceTree = "<group>"; };
+		7BEDE21A1D8ADE3B0054D13B /* JSONDictionaryExtension+WithoutSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDictionaryExtension+WithoutSpec.swift"; sourceTree = "<group>"; };
 		AE9653441D806BA800EDF682 /* SwiftCoreExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCoreExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9653471D806BA800EDF682 /* SwiftCoreExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftCoreExtensions.h; sourceTree = "<group>"; };
 		AE9653491D806BA800EDF682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE96534E1D806BA800EDF682 /* SwiftCoreExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCoreExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9653551D806BA800EDF682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE9653621D806C5300EDF682 /* String+ExtensionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ExtensionSpec.swift"; sourceTree = "<group>"; };
-		AE9653641D806C5A00EDF682 /* JSONDictionaryExtensionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDictionaryExtensionSpec.swift; sourceTree = "<group>"; };
 		AE9653661D806C6000EDF682 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		AE9653681D806C6400EDF682 /* JSONDictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDictionaryExtension.swift; sourceTree = "<group>"; };
 		AE96536A1D806DCD00EDF682 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Externals/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +110,7 @@
 		AE96535F1D806BBB00EDF682 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				AE9653641D806C5A00EDF682 /* JSONDictionaryExtensionSpec.swift */,
+				7BEDE21A1D8ADE3B0054D13B /* JSONDictionaryExtension+WithoutSpec.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -126,7 +126,7 @@
 		AE9653611D806BD700EDF682 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				AE9653681D806C6400EDF682 /* JSONDictionaryExtension.swift */,
+				7BEDE2181D8ADE350054D13B /* JSONDictionaryExtension+Without.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -247,8 +247,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BEDE2191D8ADE350054D13B /* JSONDictionaryExtension+Without.swift in Sources */,
 				AE9653671D806C6000EDF682 /* String+Extension.swift in Sources */,
-				AE9653691D806C6400EDF682 /* JSONDictionaryExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +256,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE9653651D806C5A00EDF682 /* JSONDictionaryExtensionSpec.swift in Sources */,
 				AE9653631D806C5300EDF682 /* String+ExtensionSpec.swift in Sources */,
+				7BEDE21B1D8ADE3B0054D13B /* JSONDictionaryExtension+WithoutSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
