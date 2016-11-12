@@ -1,16 +1,16 @@
 import Foundation
 
 extension NSDictionary {
-    public func without(jsonPath: String) -> NSDictionary {
+    public func without(_ jsonPath: String) -> NSDictionary {
         let copy = self.mutableCopy() as! NSMutableDictionary
 
         let pathComponents = jsonPath.split(":", times: 1)
         if pathComponents.count == 1 {
-            copy.removeObjectForKey(pathComponents[0])
+            copy.removeObject(forKey: pathComponents[0])
         } else {
             let key = pathComponents[0]
             if let subdictionary = self[key] as? NSDictionary {
-                copy.removeObjectForKey(key)
+                copy.removeObject(forKey: key)
                 let modifiedSubdictionary = subdictionary.without(pathComponents[1])
                 copy.setValue(modifiedSubdictionary, forKey: key)
                 return copy
@@ -20,9 +20,9 @@ extension NSDictionary {
                 let subcomponents = pathComponents[1].split(":", times: 1)
                 let nextToken = subcomponents[0]
                 if let nextTokenInt = Int(nextToken) {
-                    for (i, dictionary) in array.enumerate() {
+                    for (i, dictionary) in array.enumerated() {
                         if nextTokenInt == i {
-                            copy.removeObjectForKey(key)
+                            copy.removeObject(forKey: key)
                             let modifiedSubdictionary = dictionary.without(subcomponents[1])
                             modifiedArray.append(modifiedSubdictionary)
                         } else {
@@ -34,7 +34,7 @@ extension NSDictionary {
                     return copy
                 } else {
                     for dictionary in array {
-                        copy.removeObjectForKey(key)
+                        copy.removeObject(forKey: key)
                         let modifiedSubdictionary = dictionary.without(pathComponents[1])
                         modifiedArray.append(modifiedSubdictionary)
                     }
@@ -49,8 +49,8 @@ extension NSDictionary {
     }
 }
 
-extension DictionaryLiteralConvertible {
-    public func without(jsonPath: String) -> NSDictionary {
+extension ExpressibleByDictionaryLiteral {
+    public func without(_ jsonPath: String) -> NSDictionary {
         return (self as! NSDictionary).without(jsonPath)
     }
 }

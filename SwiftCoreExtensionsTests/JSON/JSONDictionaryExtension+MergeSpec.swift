@@ -7,13 +7,13 @@ class JSONDictionaryExtension_MergeSpec: XCTestCase {
         let dictionaryOne = [
             "turtle_power" : "oh yeah",
             "crab_power" : 1
-        ]
+        ] as [String : Any]
 
         let dictionaryTwo = [
             "cool_song" : "Kiss From a Rose"
         ]
 
-        let result = try! dictionaryOne.merge(dictionaryTwo)
+        let result = try! dictionaryOne.merge(dictionaryTwo as NSDictionary)
         expect(result["turtle_power"] as? String).to(equal("oh yeah"))
         expect(result["crab_power"] as? Int).to(equal(1))
         expect(result["cool_song"] as? String).to(equal("Kiss From a Rose"))
@@ -23,19 +23,19 @@ class JSONDictionaryExtension_MergeSpec: XCTestCase {
         let dictionaryOne = [
             "turtle_power" : "oh yeah",
             "crab_power" : 1
-        ]
+        ] as [String : Any]
 
         let notJSONDictionary = [
-            NSData() : "Kiss From a Rose"
+            Data() : "Kiss From a Rose"
         ]
 
-        expect { try dictionaryOne.merge(notJSONDictionary) }.to(throwError() { error in
+        expect { try dictionaryOne.merge(notJSONDictionary as NSDictionary) }.to(throwError() { error in
             guard let notAStringError = error as? KeyIsNotAStringError else {
                 fail("Failed to throw KeyIsNotAStringError")
                 return
             }
 
-            expect(notAStringError.description).to(equal("Key is not a string (type: _NSZeroData)"))
+            expect(notAStringError.description).to(equal("Key is not a string (type: _SwiftNSData)"))
         })
     }
 
@@ -43,14 +43,14 @@ class JSONDictionaryExtension_MergeSpec: XCTestCase {
         let dictionaryOne = [
             "turtle_power" : "oh yeah",
             "crab_power" : 1
-        ]
+        ] as [String : Any]
 
         let dictionaryTwo = [
             "cool_song" : "Kiss From a Rose",
             "crab_power" : "new value"
         ]
 
-        let result = try! dictionaryOne.merge(dictionaryTwo)
+        let result = try! dictionaryOne.merge(dictionaryTwo as NSDictionary)
         expect(result["turtle_power"] as? String).to(equal("oh yeah"))
         expect(result["cool_song"] as? String).to(equal("Kiss From a Rose"))
         expect(result["crab_power"] as? String).to(equal("new value"))
@@ -60,14 +60,14 @@ class JSONDictionaryExtension_MergeSpec: XCTestCase {
         let dictionaryOne = [
             "turtle_power" : "oh yeah",
             "crab_power" : 1
-        ]
+        ] as [String : Any]
 
         let dictionaryTwo = [
             "cool_song" : "Kiss From a Rose",
             "crab_power" : "new value"
         ]
 
-        let result = try! dictionaryOne.merge(dictionaryTwo, overwriteCollisions: true)
+        let result = try! dictionaryOne.merge(dictionaryTwo as NSDictionary, overwriteCollisions: true)
         expect(result["turtle_power"] as? String).to(equal("oh yeah"))
         expect(result["cool_song"] as? String).to(equal("Kiss From a Rose"))
         expect(result["crab_power"] as? String).to(equal("new value"))
@@ -77,14 +77,14 @@ class JSONDictionaryExtension_MergeSpec: XCTestCase {
         let dictionaryOne = [
             "turtle_power" : "oh yeah",
             "crab_power" : 1
-        ]
+        ] as [String : Any]
 
         let dictionaryTwo = [
             "cool_song" : "Kiss From a Rose",
             "crab_power" : "new value"
         ]
 
-        let result = try! dictionaryOne.merge(dictionaryTwo, overwriteCollisions: false)
+        let result = try! dictionaryOne.merge(dictionaryTwo as NSDictionary, overwriteCollisions: false)
         expect(result["turtle_power"] as? String).to(equal("oh yeah"))
         expect(result["cool_song"] as? String).to(equal("Kiss From a Rose"))
         expect(result["crab_power"] as? Int).to(equal(1))

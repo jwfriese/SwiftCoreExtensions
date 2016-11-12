@@ -3,8 +3,8 @@ import Nimble
 
 class JSONDictionaryExtension_WithoutSpec: XCTestCase {
     func test_without_whenDictionaryHasKey_returnsADictionaryWithTheGivenKeyEntryRemoved() {
-        let originalJSON: Dictionary<String, AnyObject> = ["key" : "value"]
-        let originalJSONDictionary: NSDictionary = originalJSON
+        let originalJSON: Dictionary<String, AnyObject> = ["key" : "value" as AnyObject]
+        let originalJSONDictionary: NSDictionary = originalJSON as NSDictionary
         let modifiedDictionary = originalJSONDictionary.without("key")
 
         expect(modifiedDictionary["key"]).to(beNil())
@@ -12,13 +12,13 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
 
     func test_without_whenDictionaryHasKeyPathMatchingInput_returnsADictionaryWithTheGivenKeyPathEntryRemoved() {
         let originalJSON: Dictionary<String, AnyObject> = [
-            "key" : "value",
+            "key" : "value" as AnyObject,
             "nestingKey" : [
                 "number" : 0,
                 "string" : "string"
-            ]
+            ] as AnyObject
         ]
-        let originalJSONDictionary: NSDictionary = originalJSON
+        let originalJSONDictionary: NSDictionary = originalJSON as NSDictionary
         let modifiedDictionary = originalJSONDictionary.without("nestingKey:string")
 
         expect(modifiedDictionary).to(equal([
@@ -31,13 +31,13 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
 
     func test_without_whenDictionaryDoesNotHaveKeyPathMatchingInput_returnsACopyOfTheDictionary() {
         let originalJSON: Dictionary<String, AnyObject> = [
-            "key" : "value",
+            "key" : "value" as AnyObject,
             "nestingKey" : [
                 "number" : 0,
                 "string" : "string"
-            ]
+            ] as AnyObject
         ]
-        let originalJSONDictionary: NSDictionary = originalJSON
+        let originalJSONDictionary: NSDictionary = originalJSON as NSDictionary
         let modifiedDictionary = originalJSONDictionary.without("turtle:string")
 
         expect(modifiedDictionary).to(equal([
@@ -51,7 +51,7 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
 
     func test_without_whenAKeyPathComponentMapsToArrayOfDictionaries_returnsADictionaryWithAllInstancesOfTheKeyRemovedFromTheSubdictionaries() {
         let originalJSON: Dictionary<String, AnyObject> = [
-            "key" : "value",
+            "key" : "value" as AnyObject,
             "nestingKey" : [
                 "number" : 0,
                 "array" : [
@@ -62,9 +62,9 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
                         "anotherKey" : "anotherValue"
                     ]
                 ]
-            ]
+            ] as AnyObject
         ]
-        let originalJSONDictionary: NSDictionary = originalJSON
+        let originalJSONDictionary: NSDictionary = originalJSON as NSDictionary
         let modifiedDictionary = originalJSONDictionary.without("nestingKey:array:anotherKey")
 
         expect(modifiedDictionary).to(equal([
@@ -81,7 +81,7 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
 
     func test_without_whenAKeyPathComponentMapsToArrayOfDictionaries_whenTheFollowingComponentIsANumber_returnsADictionaryWithTheKeyRemovedFromTheSubdictionaryAtThatIndexInTheArray() {
         let originalJSON: Dictionary<String, AnyObject> = [
-            "key" : "value",
+            "key" : "value" as AnyObject,
             "nestingKey" : [
                 "number" : 0,
                 "array" : [
@@ -92,9 +92,9 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
                         "anotherKey" : "anotherValue"
                     ]
                 ]
-            ]
+            ] as AnyObject
         ]
-        let originalJSONDictionary: NSDictionary = originalJSON
+        let originalJSONDictionary: NSDictionary = originalJSON as NSDictionary
         let modifiedDictionary = originalJSONDictionary.without("nestingKey:array:1:anotherKey")
 
         expect(modifiedDictionary).to(equal([
@@ -113,7 +113,7 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
 
     func test_without_whenAKeyPathComponentMapsToArrayOfDictionaries_whenTheFollowingComponentIsANumber_whenThatNumberIsNegative_returnsACopyOfTheDictionary() {
         let originalJSON: Dictionary<String, AnyObject> = [
-            "key" : "value",
+            "key" : "value" as AnyObject,
             "nestingKey" : [
                 "number" : 0,
                 "array" : [
@@ -124,9 +124,9 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
                         "anotherKey" : "anotherValue"
                     ]
                 ]
-            ]
+            ] as AnyObject
         ]
-        let originalJSONDictionary: NSDictionary = originalJSON
+        let originalJSONDictionary: NSDictionary = originalJSON as NSDictionary
         let modifiedDictionary = originalJSONDictionary.without("nestingKey:array:-1:anotherKey")
 
         expect(modifiedDictionary).to(equal([
@@ -147,7 +147,7 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
 
     func test_without_whenAKeyPathComponentMapsToArrayOfDictionaries_whenTheFollowingComponentIsANumber_whenThatNumberIsLargerThanTheArray_returnsACopyOfTheDictionary() {
         let originalJSON: Dictionary<String, AnyObject> = [
-            "key" : "value",
+            "key" : "value" as AnyObject,
             "nestingKey" : [
                 "number" : 0,
                 "array" : [
@@ -158,9 +158,9 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
                         "anotherKey" : "anotherValue"
                     ]
                 ]
-            ]
+            ] as AnyObject
         ]
-        let originalJSONDictionary: NSDictionary = originalJSON
+        let originalJSONDictionary: NSDictionary = originalJSON as NSDictionary
         let modifiedDictionary = originalJSONDictionary.without("nestingKey:array:100:anotherKey")
 
         expect(modifiedDictionary).to(equal([
@@ -181,11 +181,11 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
 
     func test_without_canBeUsedDirectlyOnSwiftDictionary() {
         let originalJSON: Dictionary<String, AnyObject> = [
-            "key" : "value",
+            "key" : "value" as AnyObject,
             "nestingKey" : [
                 "number" : 0,
                 "string" : "string"
-            ]
+            ] as AnyObject
         ]
         let modifiedDictionary = originalJSON.without("nestingKey:string")
         expect(modifiedDictionary).to(equal([
@@ -198,13 +198,13 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
 
     func test_without_whenInvalidKeyPathContainingTrailingSeparator_returnsACopyOfTheDictionary() {
         let originalJSON: Dictionary<String, AnyObject> = [
-            "key" : "value",
+            "key" : "value" as AnyObject,
             "nestingKey" : [
                 "number" : 0,
                 "string" : "string"
-            ]
+            ] as AnyObject
         ]
-        let originalJSONDictionary: NSDictionary = originalJSON
+        let originalJSONDictionary: NSDictionary = originalJSON as NSDictionary
         let modifiedDictionary = originalJSONDictionary.without("nestingKey:string:")
 
         expect(modifiedDictionary).to(equal([
@@ -218,13 +218,13 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
 
     func test_without_whenInvalidKeyPathContainingLeadingSeparator_returnsACopyOfTheDictionary() {
         let originalJSON: Dictionary<String, AnyObject> = [
-            "key" : "value",
+            "key" : "value" as AnyObject,
             "nestingKey" : [
                 "number" : 0,
                 "string" : "string"
-            ]
+            ] as AnyObject
         ]
-        let originalJSONDictionary: NSDictionary = originalJSON
+        let originalJSONDictionary: NSDictionary = originalJSON as NSDictionary
         let modifiedDictionary = originalJSONDictionary.without(":nestingKey:string")
 
         expect(modifiedDictionary).to(equal([
@@ -238,13 +238,13 @@ class JSONDictionaryExtension_WithoutSpec: XCTestCase {
 
     func test_without_whenInvalidKeyPathContainingMultipleConsecutiveSeparators_returnsACopyOfTheDictionary() {
         let originalJSON: Dictionary<String, AnyObject> = [
-            "key" : "value",
+            "key" : "value" as AnyObject,
             "nestingKey" : [
                 "number" : 0,
                 "string" : "string"
-            ]
+            ] as AnyObject
         ]
-        let originalJSONDictionary: NSDictionary = originalJSON
+        let originalJSONDictionary: NSDictionary = originalJSON as NSDictionary
         let modifiedDictionary = originalJSONDictionary.without("nestingKey::string")
 
         expect(modifiedDictionary).to(equal([
